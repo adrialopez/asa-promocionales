@@ -1,0 +1,10 @@
+query($page: Int!) { distribuitorProductCatalog(page: $page) { currentPage totalPages perPage hasNextPage data {
+ productModel { sku nameProductModel brand capacity isEnabledProductModelMx descriptionMx metaKeywordProductModelMx
+  media { mainImages mainImagesMx vectorImagesMx }
+  package { dimensions { heightInCentimeters lengthInCentimeters widthInCentimeters individualBoxDimensions } weight { grossWeight netWeight unitWeight } units { piecesPerBox piecesPerInner piecesPerMaster saleMultiples } }
+  features { material measure sizeMeasures canGrabaprom isEcological isWaterproof hasBluetooth }
+  filters { brandFilterable familyFilterable subFamilyFilterable mlCapacity }
+  writingInk { inkColorMx } printing { printArea printTechnique } }
+ variants { sku name parentArticle color size pricing { priceMx { amount currency } } availability { isEnabledVariantMx }
+  seoMetadata { nameProductModel metaTitle } mediaAssets { variantImages }
+  commercialAttributes { isBrandNewMx isOnOutletMx isMadeInMexicoMx isNotRestockableMx priceConditionMx } } } } }

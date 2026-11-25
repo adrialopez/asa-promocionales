@@ -1,1 +1,8 @@
 .DS_Store
+.env
+.token.json
+.login-failed
+data/
+propuesta/
+__pycache__/
+.wp-admin.txt
