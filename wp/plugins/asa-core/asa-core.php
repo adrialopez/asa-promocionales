@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ASA Core
  * Description: Catálogo conectado a Promo Opción, lista de cotización, leads, atribución, reporte y SEO para ASA Promocionales.
- * Version: 0.1.0
+ * Version: 0.1.1
  * Author: Adrià López
  * Author URI: https://adria-lopez.com
  * Requires PHP: 8.0
@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ASA_CORE_VERSION', '0.1.0' );
+define( 'ASA_CORE_VERSION', '0.1.1' );
 define( 'ASA_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ASA_CORE_URL', plugin_dir_url( __FILE__ ) );
 

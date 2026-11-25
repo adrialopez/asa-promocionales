@@ -143,7 +143,7 @@
       if (type === 'cotizacion') body.set('items', JSON.stringify(list));
       btn.disabled = true; msg.className = 'form-msg'; msg.textContent = 'Enviando…';
       try {
-        const res = await fetch(cfg.rest + 'lead', { method: 'POST', body, credentials: 'omit' });
+        const res = await fetch(cfg.rest + 'lead', { method: 'POST', body, credentials: 'same-origin' });
         const data = await res.json();
         if (!data.ok) throw new Error(data.message);
         form.reset();

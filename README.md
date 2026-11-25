@@ -41,3 +41,7 @@ Credenciales en el servidor: constantes `ASA_PROMO_EMAIL` y `ASA_PROMO_PASSWORD`
 ### Antes de producción
 Activar la indexación (y quitar la cabecera `X-Robots-Tag`), WhatsApp y correo reales, aviso de privacidad
 validado, contenido confirmado por ASA, redirecciones desde el sitio actual y SMTP para los avisos.
+
+La web de prueba está protegida con clave HTTP y con la sincronización pausada (eventos de WP-Cron borrados y
+línea del crontab marcada `#PAUSADO`). Para reanudar: quitar la marca y desactivar y activar `asa-core`.
+La tarea del crontab no necesita la clave porque usa WP-CLI.
