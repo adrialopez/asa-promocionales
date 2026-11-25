@@ -50,6 +50,29 @@ function asa_form( $type = 'contacto' ) {
 	return ob_get_clean();
 }
 
+/**
+ * Alta en el boletín: el formulario envía directamente a Mailchimp.
+ * La dirección se pega en Ajustes (Audience > Signup forms > Embedded forms > action).
+ */
+function asa_newsletter() {
+	$url = asa_opt( 'mailchimp_url' );
+	parse_str( (string) wp_parse_url( $url, PHP_URL_QUERY ), $q );
+	ob_start();
+	?>
+	<form class="asa-news" method="post" target="_blank" rel="noopener"<?php echo $url ? ' action="' . esc_url( $url ) . '"' : ''; ?>>
+		<div class="asa-news__row">
+			<input type="email" name="EMAIL" required autocomplete="email" placeholder="Tu correo de trabajo" aria-label="Correo electrónico">
+			<button type="submit" class="btn btn--light">Suscribirme</button>
+		</div>
+		<?php if ( ! empty( $q['u'] ) && ! empty( $q['id'] ) ) : ?><div class="hp" aria-hidden="true"><input name="b_<?php echo esc_attr( $q['u'] . '_' . $q['id'] ); ?>" tabindex="-1" value=""></div><?php endif; ?>
+		<label class="asa-news__ok"><input type="checkbox" required><span>Quiero recibir novedades y acepto el <a href="<?php echo esc_url( home_url( '/aviso-de-privacidad/' ) ); ?>">aviso de privacidad</a>.</span></label>
+		<p class="form-msg" role="status" aria-live="polite"></p>
+	</form>
+	<?php
+	return ob_get_clean();
+}
+add_shortcode( 'asa_newsletter', 'asa_newsletter' );
+
 add_shortcode( 'asa_form', fn( $a ) => asa_form( shortcode_atts( array( 'tipo' => 'contacto' ), $a )['tipo'] ) );
 
 add_shortcode( 'asa_cotizador', function () {

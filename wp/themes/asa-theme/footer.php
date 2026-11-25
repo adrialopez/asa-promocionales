@@ -1,4 +1,10 @@
 </main>
+<?php if ( function_exists( 'asa_newsletter' ) ) : ?>
+<section class="news" aria-labelledby="news-title"><div class="wrap news__in">
+	<div><h2 id="news-title">Suscríbete a nuestro boletín</h2><p>Novedades del catálogo, ideas para tus campañas y promociones.</p></div>
+	<?php echo asa_newsletter(); ?>
+</div></section>
+<?php endif; ?>
 <footer class="footer">
 	<div class="wrap footer__in">
 		<div>

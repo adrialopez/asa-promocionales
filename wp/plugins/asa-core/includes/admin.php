@@ -307,6 +307,8 @@ function asa_page_settings() {
 		update_option( 'asa_settings', array(
 			'whatsapp' => preg_replace( '/\D/', '', $p['whatsapp'] ?? '' ), 'notify_email' => sanitize_email( $p['notify_email'] ?? '' ),
 			'phone' => sanitize_text_field( $p['phone'] ?? '' ), 'email' => sanitize_email( $p['email'] ?? '' ),
+			// Solo se aceptan direcciones de formularios de Mailchimp.
+			'mailchimp_url' => preg_match( '#^https://[a-z0-9.\-]+\.list-manage\.com/#i', trim( $p['mailchimp_url'] ?? '' ) ) ? esc_url_raw( trim( $p['mailchimp_url'] ) ) : '',
 		) );
 		echo '<div class="notice notice-success"><p>Ajustes guardados.</p></div>';
 	}
@@ -317,7 +319,7 @@ function asa_page_settings() {
 	?>
 	<div class="wrap"><h1>Ajustes y catálogo</h1>
 		<form method="post"><?php wp_nonce_field( 'asa_settings' ); ?><table class="form-table">
-			<?php foreach ( array( 'whatsapp' => 'WhatsApp (52 + 10 dígitos)', 'notify_email' => 'Correo que recibe los leads', 'phone' => 'Teléfono público', 'email' => 'Correo público' ) as $k => $label ) : ?>
+			<?php foreach ( array( 'whatsapp' => 'WhatsApp (52 + 10 dígitos)', 'notify_email' => 'Correo que recibe los leads', 'phone' => 'Teléfono público', 'email' => 'Correo público', 'mailchimp_url' => 'Mailchimp: dirección del formulario (list-manage.com)' ) as $k => $label ) : ?>
 				<tr><th><?php echo esc_html( $label ); ?></th><td><input class="regular-text" name="asa_settings[<?php echo esc_attr( $k ); ?>]" value="<?php echo esc_attr( asa_opt( $k ) ); ?>"></td></tr>
 			<?php endforeach; ?>
 		</table><button class="button button-primary">Guardar</button></form>

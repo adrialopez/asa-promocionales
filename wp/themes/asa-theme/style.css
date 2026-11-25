@@ -2,7 +2,7 @@
 Theme Name: ASA Theme
 Description: Tema propio de ASA Promocionales.
 Author: Adrià López
-Version: 0.1.0
+Version: 0.1.1
 Text Domain: asa-theme
 */
 :root{--green:#004035;--green-2:#0a5a4b;--green-3:#06291f;--cream:#f3e6bd;--lime:#c6e65a;--ink:#10201c;--muted:#566862;--tint:#f2f6f3;--line:#dfe8e3;--wa:#25d366;--r:16px;--f:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif}
@@ -145,6 +145,13 @@ input:not([type=checkbox]),select,textarea{width:100%;min-width:0;padding:11px 1
 .line__f label{font-size:.75rem;font-weight:700}
 .line__x{background:none;border:0;font-size:1.5rem;line-height:1;align-self:start;cursor:pointer;color:var(--muted)}
 
+.news{background:var(--green);color:#e2efe9;padding:40px 0}
+.news__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
+.news h2{color:#fff;font-size:1.5rem;margin-bottom:6px}
+.asa-news__row{display:flex;gap:10px}
+.asa-news__ok{display:flex;gap:10px;align-items:flex-start;margin-top:10px;font-size:.82rem}.asa-news__ok input{margin-top:5px}
+.news a{color:var(--lime)}
+.asa-news .form-msg:empty{display:none}
 .footer{background:var(--green-3);color:#bcd4cb;padding:52px 0 96px;font-size:.9rem}
 .footer a{color:#e2efe9;text-decoration:none}.footer a:hover{text-decoration:underline}
 .footer h2{color:#fff;font-size:1rem;margin-bottom:12px}
@@ -169,7 +176,7 @@ input:not([type=checkbox]),select,textarea{width:100%;min-width:0;padding:11px 1
 @media(max-width:860px){
 	.proofs ul,.steps{grid-template-columns:1fr 1fr}
 	.split,.product,.quote{grid-template-columns:minmax(0,1fr)}
-	.footer__in{grid-template-columns:1fr}
+	.footer__in,.news__in{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:560px){
 	.header__in{gap:10px}.logo img{width:122px}
@@ -180,5 +187,6 @@ input:not([type=checkbox]),select,textarea{width:100%;min-width:0;padding:11px 1
 	.buy .btn{width:100%}.buy label{width:100%}
 	.filters>span{margin-left:0;width:100%}
 	.consent{right:16px}
+	.asa-news__row{flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

@@ -158,6 +158,18 @@
     });
   });
 
+  /* ---------- Boletín ---------- */
+  document.querySelectorAll('.asa-news').forEach(form => form.addEventListener('submit', e => {
+    const msg = form.querySelector('.form-msg');
+    if (!form.getAttribute('action')) {
+      e.preventDefault();
+      msg.textContent = 'La suscripción se activará al conectar la lista de Mailchimp.';
+      return;
+    }
+    msg.textContent = 'Confirma tu suscripción en la ventana que se abrió.';
+    dl('newsletter_signup');
+  }));
+
   paintCount();
   renderList();
 })();
