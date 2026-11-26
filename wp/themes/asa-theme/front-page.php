@@ -53,7 +53,7 @@
 	<div>
 		<p class="eyebrow">Fabricación propia</p><h2>Chamarras con tu marca, hechas en México</h2>
 		<p>Desarrollamos chamarras con atención a materiales, confección y acabados, y las personalizamos con la identidad de tu empresa.</p>
-		<a class="btn btn--light" href="<?php echo esc_url( home_url( '/personalizacion/chamarras/' ) ); ?>">Cotizar chamarras</a>
+		<a class="btn btn--light" href="<?php echo esc_url( home_url( '/catalogo/textiles/chamarras-y-chalecos/' ) ); ?>">Ver chamarras</a>
 	</div>
 	<img src="<?php echo asa_img( 'bordado.jpg' ); ?>" alt="Bordado sobre prenda" loading="lazy" width="584" height="900">
 </div></section>

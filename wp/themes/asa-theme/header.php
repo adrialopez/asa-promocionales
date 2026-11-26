@@ -16,7 +16,6 @@
 		<nav class="nav" id="nav" aria-label="Principal">
 			<a href="<?php echo esc_url( home_url( '/catalogo/' ) ); ?>">Catálogo</a>
 			<a href="<?php echo esc_url( home_url( '/soluciones/' ) ); ?>">Soluciones</a>
-			<a href="<?php echo esc_url( home_url( '/personalizacion/chamarras/' ) ); ?>">Chamarras</a>
 			<a href="<?php echo esc_url( home_url( '/personalizacion/' ) ); ?>">Personalización</a>
 			<a href="<?php echo esc_url( home_url( '/empresas/' ) ); ?>">Empresas</a>
 			<a href="<?php echo esc_url( home_url( '/nosotros/' ) ); ?>">Nosotros</a>

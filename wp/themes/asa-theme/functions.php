@@ -1,7 +1,7 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-define( 'ASA_THEME_VERSION', '0.1.2' );
+define( 'ASA_THEME_VERSION', '0.1.3' );
 
 add_action( 'after_setup_theme', function () {
 	add_theme_support( 'title-tag' );
@@ -152,3 +152,12 @@ add_shortcode( 'asa_clientes', function () {
 	asa_clients();
 	return ob_get_clean();
 } );
+
+// Las chamarras forman parte del catálogo: la antigua página redirige a su categoría.
+add_action( 'template_redirect', function () {
+	$path = trim( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+	if ( is_404() && str_ends_with( $path, 'personalizacion/chamarras' ) ) {
+		wp_safe_redirect( home_url( '/catalogo/textiles/chamarras-y-chalecos/' ), 301 );
+		exit;
+	}
+}, 1 );
